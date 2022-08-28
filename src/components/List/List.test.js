@@ -49,7 +49,7 @@ describe("It should render the List page", () => {
     expect(beerName).toBeInTheDocument;
     expect(attenuationLevel).toBeInTheDocument();
   });
-  test("should display the button as disabled and with red background if beer has already been added as favorite", async () => {
+  test("should display the button with red background if beer has already been added as favorite", async () => {
     jest.spyOn(global, "fetch").mockResolvedValue({
       json: jest.fn().mockResolvedValue([
         {
@@ -75,7 +75,6 @@ describe("It should render the List page", () => {
 
     const button = screen.getByRole("button");
     fireEvent.click(button);
-    expect(button).toBeDisabled();
     expect(button).toHaveStyle("background-color:#ff8e8e");
   });
 });

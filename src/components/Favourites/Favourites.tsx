@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { BeerItem } from "../interfaces/interfaces";
-import { Button, Card, Image, LinkText, ListContainer } from "../List/styled";
+import CardItem from "../reusableComponents/CardItem/CardItem";
+import { BeerItem } from "../../interfaces/interfaces";
+import { LinkText, ListContainer } from "../List/styled";
 import { NoItemsCard } from "./styled";
 const Favourites = () => {
   const [favouriteList, setFavouriteList] = useState<BeerItem[]>([]);
   const favorites = localStorage.getItem("favorites");
-  const removeFavourite = (id) => {
-    const updatedFavouriteListe = favouriteList.filter(
-      (beer: BeerItem) => beer.id !== id.id
+  const removeFavourite = (beer: BeerItem) => {
+    const updatedFavouriteList = favouriteList.filter(
+      (selectedBeer: BeerItem) => selectedBeer.id !== beer.id
     );
-    localStorage.setItem("favorites", JSON.stringify(updatedFavouriteListe));
-    setFavouriteList(updatedFavouriteListe);
+    localStorage.setItem("favorites", JSON.stringify(updatedFavouriteList));
+    setFavouriteList(updatedFavouriteList);
   };
   useEffect(() => {
     if (favorites) {
@@ -35,14 +36,15 @@ const Favourites = () => {
       ) : (
         <>
           <ListContainer>
-            {favouriteList.map((beer, index) => (
-              <Card key={beer.id}>
-                {beer.name}
-                <Image src={beer.image_url}></Image>
-                <Button onClick={() => removeFavourite(beer)}>
-                  Remove from favs
-                </Button>
-              </Card>
+            {favouriteList.map((beer: BeerItem) => (
+              <CardItem
+                key={beer.id}
+                beer={beer}
+                text={"Remove from favs"}
+                name={beer.name}
+                image_url={beer.image_url}
+                addOrRemove={removeFavourite}
+              />
             ))}
           </ListContainer>
         </>

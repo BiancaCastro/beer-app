@@ -37,7 +37,7 @@ Last, but not least important, I used jest to test my functionality. I will talk
 
 I created a basic structure for the project, as it is not too much big.
 
-One folder called public where I added the images, and another one, src, where we can difference between services and components. 
+One folder called public where I added the images, and another one, src, where we can difference between services, interfaces and components. 
 
 ### Services 
 
@@ -46,15 +46,15 @@ I used "fetch" as I found the easiest one to use and I didn't have to install an
 
 ### Components 
 
-In the components folder (that also could be named as pages or views, this can generate an interesting argument), we can find Favourites and List.
+In the components folder, we can find Favourites and the List folders (that could be the Pages) and also the Header, the other another one if for the reusableComponents, but in that case we only have one reusable component, which is the CardItem one.
 
 List is about all the beers that are retrieved from the api call. Here we can see basic information about each beer: Name, picture and attenuation level.
 
 ![no Quote](./public/List.png)
 
 If we click in "Add to favs" we will add the beer to a list.
-Notice that when the beer is added, user won't be able to add again that beer to the list, and also the style of the button will change.
-![no Quote](./public/Disabled.png)
+Notice that when the beer is added, the user is also able to remove it from the list. Alos the style of the button will change, so the user can see quickly if the beer is added or not the list.
+![no Quote](./public/DetailedBeer.png)
 
 If we click on "Go to my Favourite List", we will go to the second component, the one where we can see our selected beers. If any beer was selected, we will see an informational text:
 ![no Quote](./public/empty.png)
@@ -74,20 +74,20 @@ Also, I decided to use local Storage to save the beers selected from user, it is
 
 # Manageging loadings
 
-As we saw before, when no quote comes the character selected, I added a informative text.
-
-For when api is loading/pending, I added a simple "Loading" text to be displayed while information is not coming from back end.
+When api is loading/pending, I added a simple "Loading" text to be displayed while information is not coming from back end.
 
 # Testing
 
 Final bullet of the list is about testing. I tried to generate as many tests as were useful to prove that the logic of the components is stable and consistent.
 
-For example, for List case, I proved that text is displayed while data is not coming, another one to prove that once we had the information, it its displayed (name, attenuation level, image...), and also one to check about the disabled style of the button.
+For example, for List case, I proved that text is displayed while data is not coming, another one to prove that once we had the information, it its displayed (name, attenuation level, image...), and also one to check about the styles of the button depending on its state.
 
 In Favourites test I tested that when no api is dispatched, we have a informative text, and, once we have the information, it is displayed.
 Also, another one to prove logic related to the remove functionality.
 
+In the CardItem test, I tested that all the required props are present in the component, also the functionality related to the onClick on the button and the styles related to the button.
+
 Coverage report image:
 ![Coverage](./public/coverage.png)
 
->A 82% is achived.
+>93.% is achived.
