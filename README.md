@@ -50,7 +50,7 @@ In the components folder, we can find Favourites and the List folders (that coul
 
 List is about all the beers that are retrieved from the api call. Here we can see basic information about each beer: Name, picture and attenuation level.
 
-![no Quote](./public/List.png)
+![no Quote](./public/BeerList.png)
 
 If we click in "Add to favs" we will add the beer to a list.
 Notice that when the beer is added, the user is also able to remove it from the list. Alos the style of the button will change, so the user can see quickly if the beer is added or not the list.
@@ -60,7 +60,7 @@ If we click on "Go to my Favourite List", we will go to the second component, th
 ![no Quote](./public/empty.png)
 
 If beers were added, we will see them, and also we will be able to delete them from the list clicking on "Remove from favs".
-![no Quote](./public/favs.png)
+![no Quote](./public/favsDetail.png)
 
 Also, from here, we can navigate again to the main page, clicking on "Go back to the list".
 
@@ -88,6 +88,6 @@ Also, another one to prove logic related to the remove functionality.
 In the CardItem test, I tested that all the required props are present in the component, also the functionality related to the onClick on the button and the styles related to the button.
 
 Coverage report image:
-![Coverage](./public/coverage.png)
+![Coverage](./public/coverageReport.png)
 
 >93.% is achived.
